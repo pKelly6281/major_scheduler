@@ -34,6 +34,25 @@ class UsersController < ApplicationController
   def update
   end
   def your_schedule
+    @user = current_user
+    @userMajor = UserMajor.where('user_id ='+@user.id.to_s)
+    @courses = Course.where('major ='+@userMajor.first.major_id.to_s)
+    @courses_options = Array.new
+    @courses.each do |e|
+      if !TakenCourse.where('course_id ='+e.id.to_s).exists?
+        @courses_options.push(e)
+      end
+    end
+    
+    @coursesTaken = TakenCourse.where('user_id='+@user.id.to_s)
+    @courseTaken_options = Array.new
+    @coursesTaken.each do |e|
+        @course = Course.find(e['course_id'])
+        @temp = Array.new
+        @temp.push(@course.name, @course.id)
+        @courseTaken_options.push(@temp)
+    end
+
   end
   private
     def user_params

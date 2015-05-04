@@ -1,2 +1,14 @@
-<h1>Users#your_schedule</h1>
-<p>Find me in app/views/users/your_schedule.html.erb</p>
+<div class="row">
+	<div class="col-md-3 text-center">
+		<h1>Major Requirements</h1>
+		<% @courses_options.each do |e| %>
+			<p><%=e.name%></p>
+		<% end %>
+	</div>
+	<div class="col-md-3 col-md-offset-3">
+		<h1>Courses Taken</h1>
+		<% @courseTaken_options.each do |e| %>
+			<p><%=e[0]%></p>
+		<% end%>
+	</div> 
+</div>

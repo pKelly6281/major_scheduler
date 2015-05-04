@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 attr_accessor :remember_token
   before_save { self.email = email.downcase }#runs before we execute code before
   has_many :majors, through: :user_major
+  has_many :courses, through: :taken_courses
 	#first name and last name validation 
 	validates :firstname, presence: true, length: { maximum: 30}
 	validates :lastname, presence: true, length: { maximum: 30}

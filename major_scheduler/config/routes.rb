@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'taken_courses/new'
+
   get 'user_major/new'
 
   get 'user_major/edit'
-
+  get 'addTakenCourse' => 'taken_courses#new'
+  get 'addCourse' => 'courses#new'
+  get 'editUserMajor' => 'user_majors#edit'
   get 'majors/new'
   get 'addMajor' => 'majors#new'
   get 'sessions/new'
@@ -24,6 +28,9 @@ Rails.application.routes.draw do
   root 'main#home'
   resources :users
   resources :majors
+  resources :user_majors
+  resources :courses
+  resources :taken_courses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

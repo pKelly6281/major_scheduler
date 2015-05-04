@@ -1,0 +1,10 @@
+<h1>Which course have you taken?</h1>
+<%= form_for @takencourse do |f| %>
+		<%= f.label :course,'Select the Course' %>
+		<%= f.select(:course_id, @courses) %>
+
+		<%= f.hidden_field :user_id, :value =>current_user.id %>
+
+
+		<%= f.submit "Update Major", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Add a new course</h1>
+<%= form_for @course do |f| %>
+
+		<%= f.label :course,'Enter a course' %>
+		<%= f.text_field :name, class: 'form-control' %>
+
+		<%= f.label :major,'Select the Major' %>
+		<%= f.select(:major, @majors) %>
+
+
+		<%= f.submit "Update Major", class: "btn btn-primary" %>
+<% end %>
