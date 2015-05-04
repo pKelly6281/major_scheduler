@@ -1,14 +1,33 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>MajorScheduler</title>
+  <title>Major Scheduler</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+    <!-- Latest compiled and minified JavaScript -->
+    
+  <%= render 'layouts/shim' %>
 </head>
 <body>
 
-<%= yield %>
+    
+  <div class="container-full">
+    <div class="header">
+  	   <%= render 'layouts/header' %>
+    </div>
+    <div class="content">
+      <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+    	<%= yield %>
+    </div>
+    <div class="footer">
+  	   <%= render 'layouts/footer' %>
+    </div>
+  </div>
 
+  
 </body>
 </html>
