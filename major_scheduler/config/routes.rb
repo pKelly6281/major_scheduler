@@ -1,22 +1,29 @@
 Rails.application.routes.draw do
 
+  get 'user_major/new'
+
+  get 'user_major/edit'
+
+  get 'majors/new'
+  get 'addMajor' => 'majors#new'
   get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  get 'userShow' => 'users#show'
   get 'users/new'
 
-  get 'your_schedule' => 'users#your_schedule'
+  get 'addUserMajor' => 'user_majors#new'
+  get 'yourSchedule' => 'users#your_schedule'
 
   get 'about' => 'main#about'
 
   get 'main/contact_us'
-
+  #user controller
+  get 'signup' =>'users#new'
   root 'main#home'
   resources :users
-
+  resources :majors
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

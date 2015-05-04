@@ -1,0 +1,10 @@
+<%= form_for (@user_major) do |f| %>
+
+		<%= f.label :major,'Select the Major' %>
+		<%= f.select(:major_id, @majors) %>
+		
+		<%= f.hidden_field :user_id, :value =>@user.id %>
+
+
+		<%= f.submit "Update Major", class:"btn btn-primary" %>
+<% end %>

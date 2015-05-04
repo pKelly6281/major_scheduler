@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to root_url
+    @user = User.find(params[:id])
+    @userMajor = UserMajor.where('user_id='+@user.id.to_s).exists?
+    if current_user.id != @user.id
+        flash[:danger] = "You cannot access their page"
+        redirect_to root_url
+    end
   end
 
   def index
@@ -22,7 +27,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to root_url
+    @user = User.find(params[:id])
+    @majors = Major.all
   end
 
   def update

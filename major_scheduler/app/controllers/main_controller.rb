@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def home
+  	@majors = Major.all
   end
 
   def about

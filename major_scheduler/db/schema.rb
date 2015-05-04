@@ -11,15 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504053710) do
+ActiveRecord::Schema.define(version: 20150504073837) do
+
+  create_table "majors", force: true do |t|
+    t.string   "name",       limit: nil
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "user_major", force: true do |t|
+    t.integer  "major_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_majors", force: true do |t|
+    t.integer  "major_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "firstname",       limit: nil
+    t.string   "lastname",        limit: nil
+    t.string   "email",           limit: nil
+    t.string   "password_digest", limit: nil
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end
